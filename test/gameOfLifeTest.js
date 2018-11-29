@@ -46,4 +46,13 @@ describe('nextGeneration',() => {
     assert.ok(isSame(actualNextGen,expectedNextGen));
     assert.ok(isSameArity(actualNextGen,expectedNextGen));
   });
+  it('should work for beehive combination',() => {
+    let currentGeneration = [[1,2],[1,3],[2,1],[2,4],[3,2],[3,3]]
+    let bounds = {topLeft: [1,1] , bottomRight:[3,4]}
+    let expectedNextGen = [[1,2],[1,3],[2,1],[2,4],[3,2],[3,3]]
+    let actualNextGen = nextGeneration(currentGeneration,bounds);
+    assert.ok(isSame(actualNextGen,expectedNextGen));
+    assert.ok(isSameArity(actualNextGen,expectedNextGen));
+  });
+
 });

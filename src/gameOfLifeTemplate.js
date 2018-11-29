@@ -62,7 +62,7 @@ const getCoordinates = function(coordinate1,coordinate2){
 }
 
 const placeAlives = function(list,board){
-  let boardcoordinates = getCoordinates([0,0],[board.length-1,board.length-1])
+  let boardcoordinates = getCoordinates([0,0],[board.length-1,board[0].length-1])
   let newlist = list.filter((x) => findArray(x,boardcoordinates));
   newlist.map((x) => board[x[0]][x[1]] = 1)
   return board;
