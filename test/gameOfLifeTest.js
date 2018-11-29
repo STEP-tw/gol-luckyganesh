@@ -38,4 +38,12 @@ describe('nextGeneration',() => {
     assert.ok(isSame(actualNextGen,expectedNextGen));
     assert.ok(isSameArity(actualNextGen,expectedNextGen));
   });
+  it('should work for negative bounds' ,() => {
+    let currentGeneration = [[-1,-1],[0,0],[0,1],[1,2],[2,2]]
+    let bounds = {topLeft: [-1,-1] , bottomRight:[3,3]}
+    let expectedNextGen = [[-1,0],[0,0],[0,1],[1,2]];
+    let actualNextGen = nextGeneration(currentGeneration,bounds);
+    assert.ok(isSame(actualNextGen,expectedNextGen));
+    assert.ok(isSameArity(actualNextGen,expectedNextGen));
+  });
 });
