@@ -1,4 +1,4 @@
-const { generateBoard , findArray ,newGeneration, placeAlives, findAliveCellLocation ,getCoordinates } = require("./gameOfLifeTemplate.js");
+const { generateBoard , findArray ,newGeneration, placeAlives, findAliveCellLocation ,getCoordinates } = require("./gameOfLifeLib.js");
 
 const nextGeneration = function(currentGeneration,bounds){
   let { topLeft , bottomRight } = bounds;

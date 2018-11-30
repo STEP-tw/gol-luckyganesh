@@ -1,15 +1,14 @@
 const newGeneration = function(board){
-  newBoard = findBoardCells(board).map((x) => {
-    return x.map((y) => {
-      return y.reduce((a,b) => a+b );
-    });
-  });
-  newBoard = newBoard.map((row,rowNo) => {
-    return row.map((column,columnNo) => {
-      return checkCell(column,board[rowNo][columnNo])
-    });
-  });
+  let newBoard = board.map((row,rowNo) =>
+    row.map((stateOfElement,columnNo) => {
+      let noOfAlives = findNeighboursState(rowNo,columnNo,board).reduce(sum,0);
+      return nextStateOfCell(noOfAlives,stateOfElement);
+    }));
   return newBoard;
+}
+
+const sum = function(a,b){
+  return a+b;
 }
 
 const findAliveCellLocation = function(board){
@@ -24,22 +23,22 @@ const findAliveCellLocation = function(board){
   return coordinateList;
 }
 
-const checkCell = function(sum,elem){
-  let result = [0,0,elem,1,0,0,0,0,0]
-  return result[sum];
+const nextStateOfCell = function(totalAliveNeighbours,currentStateoOfCell){
+  let result = [0,0,currentStateoOfCell,1,0,0,0,0,0]
+  return result[totalAliveNeighbours];
 }
 
 const findBoardCells = function(board){
   let newBoard = board.slice(0);
   newBoard = newBoard.map((row,rowNo) => {
     return row.map((column,columnNo) => {
-      return findCells(rowNo,columnNo,board)
+      return findNeighboursState(rowNo,columnNo,board)
     });
   });
   return newBoard;
 }
 
-const findCells = function(row,column,board){
+const findNeighboursState = function(row,column,board){
   let mainrow = board[row]
   let leftrow = board[row-1] || [];
   let rightrow = board[row+1] || [];
