@@ -13,8 +13,8 @@ const sum = function(a,b){
 
 const findAliveCellLocation = function(board){
   let coordinateList = [];
-  for(outerindex = 0;outerindex<board.length;outerindex++){
-    for(innerindex = 0;innerindex<board[outerindex].length;innerindex++){
+  for(let outerindex = 0;outerindex<board.length;outerindex++){
+    for(let innerindex = 0;innerindex<board[outerindex].length;innerindex++){
       if(board[outerindex][innerindex]){
         coordinateList.push([outerindex,innerindex]);
       }
@@ -42,7 +42,7 @@ const findNeighboursState = function(row,column,board){
   let mainrow = board[row]
   let leftrow = board[row-1] || [];
   let rightrow = board[row+1] || [];
-  cells = [ mainrow[column-1],mainrow[column+1]]
+  let cells = [ mainrow[column-1],mainrow[column+1]]
   cells.push(leftrow[column])
   cells.push(leftrow[column+1],leftrow[column-1])
   cells.push(rightrow[column],rightrow[column+1],rightrow[column-1])
