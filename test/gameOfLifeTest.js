@@ -86,4 +86,20 @@ describe('nextGeneration',() => {
     assert.ok(isSame(actualNextGen,expectedNextGen));
     assert.ok(isSameArity(actualNextGen,expectedNextGen));
   });
+  it('should work for vertical',() => {
+    let currentGeneration = [[1,1]];
+    let bounds = {topLeft: [0,0] , bottomRight:[0,10]};
+    let expectedNextGen = [];
+    let actualNextGen = nextGeneration(currentGeneration,bounds);
+    assert.ok(isSame(actualNextGen,expectedNextGen));
+    assert.ok(isSameArity(actualNextGen,expectedNextGen));
+  });
+  it('should work for horizontal',() => {
+    let currentGeneration = [[1,1]];
+    let bounds = {topLeft: [0,0] , bottomRight:[10,0]};
+    let expectedNextGen = [];
+    let actualNextGen = nextGeneration(currentGeneration,bounds);
+    assert.ok(isSame(actualNextGen,expectedNextGen));
+    assert.ok(isSameArity(actualNextGen,expectedNextGen));
+  });
 });

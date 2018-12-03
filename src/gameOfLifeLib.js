@@ -69,9 +69,7 @@ const placeAlives = function(list,board){
 
 const findArray = function(array,list){
   return list.some((elem) => {
-    let result1 = elem.every((x) => array.includes(x));
-    let result2 = array.every((x) => elem.includes(x));
-    return result1 && result2;
+    return elem[0] == array[0] && elem[1] == array[1];
   });
 }
 
